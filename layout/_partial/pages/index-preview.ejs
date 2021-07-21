@@ -1,5 +1,11 @@
 <div class="post-preview post-preview-index">
     <a href="<%- url_for(post.path) %>">
+        <% if (post.image_url) { %>
+            <img class="w-100 thumbnail"
+                src="<%- post.image_url.includes('://') ? post.image_url : url_for(post.image_url) %>"
+                alt="<%- post.title || theme.default_post_title || " Untitled" %>"
+            >
+        <% } %>
         <h2 class="post-title">
             <%- post.title || theme.default_post_title || "Untitled" %>
         </h2>
@@ -9,12 +15,12 @@
             </h3>
         <% } %>
     </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        <% if(post.author) { %>
-            Posted by <%- post.author %> on
-        <% } %>
-        <%= post.date.format(config.date_format) %>
-    </p>
+
+    <% if (post.excerpt && post.excerpt.length) { %>
+        <p class="post-excerpt mx-1">
+            <%- post.excerpt %>
+        </p>
+    <% } %>
+    <a href="<%- url_for(post.path) %>" class="btn btn-primary text-white btn-block">Read More</a>
 </div>
 <hr>

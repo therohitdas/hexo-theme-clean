@@ -1,15 +1,66 @@
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top bg-transparent position-absolute w-100 p-0" id="nav">
-    <div class="container pl-0 pr-0">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <a class="navbar-brand text-white p-1 pl-3" href="<%- url_for('/') %>"><%- theme.menu_title || config.title || "" %></a>
-        </div>
-        <div class="navbar-nav float-right">
-            <button class="btn btn-link search-btn navbar-item" data-toggle="modal" data-target="#searchModal">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a id="logo" class="navbar-brand" href="/">
+      <img src="https://mixal.xyz/otherImages/logo.svg" onerror="this.onerror=null; this.src='/otherImages/logo.svg'">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto"> 
+        <li class="nav-item">
+          <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item dropdown" id="social-nav">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-hashtag"></i> Follow Us !
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item text-underline" href="https://instagram.com/deardostcom">Instagram @deardostcom</a>
+            <a class="dropdown-item text-underline" href="https://twitter.com/quizprank">Twitter @quizprank</a>
+            <div class="dropdown-divider"></div>
+            <p class="dropdown-item">Please Follow Us to stay connected!</p>
+          </div>
+        </li>
+        <li class="nav-item logged_in hidden">
+          <a class="nav-link" href="#leaderboard"><i class="fa fa-list-ol" aria-hidden="true"></i> Leaderboard</a>
+        </li>
+        <li class="nav-item logged_in hidden">
+          <a class="nav-link" href="#responses"><i class="fa fa-envelope" aria-hidden="true"></i> Responses</a>
+        </li>
+        <li class="nav-item logged_in hidden">
+          <a class="nav-link" href="#" onclick="show_password()"><i class="fa fa-key" aria-hidden="true"></i> Show
+            Password</a>
+        </li>
+        <li class="nav-item logged_in hidden">
+          <a class="nav-link" href="#" onclick="show_settings()"><i class="fa fa-cog" aria-hidden="true"></i>
+            Settings</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-star" aria-hidden="true"></i> Important Links
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a href="/contact-us/" class="dropdown-item text-underline">Contact Us</a>
+            <a href="/disclaimer.html" class="dropdown-item text-underline">Disclaimer</a>
+            <a href="/privacy-policy.html" class="dropdown-item text-underline">Privacy Policy</a>
+            <a href="/terms.html" class="dropdown-item text-underline">Terms Of Use</a>
+            <a href="/cookie-policy.html" class="dropdown-item text-underline">Cookie Policy</a>
+            <a href="https://app.termly.io/notify/8e9dfa50-4649-4d1f-af95-558872516a64"
+              class="dropdown-item text-underline">Do not sell
+              my info</a>
+          </div>
+        </li>
+      </ul>
+      <div class="form-inline mt-2 mt-lg-0">
+        <button class="btn btn-primary btn-light text-dark bg-light mr-1" data-toggle="modal" data-target="#searchModal">
+            <i class="fas fa-search"></i>
+        </button>
+        <a class="btn btn-primary btn-light text-dark bg-light hidden" id="login_link" href="/login/">Login</a>
+        <button class="btn btn-primary btn-light text-dark bg-light hidden" id="logout_link" onclick="logout()">Logout</button>
+      </div>
     </div>
-    <!-- /.container -->
 </nav>
